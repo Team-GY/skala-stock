@@ -84,10 +84,12 @@ public class SkalaStockMarket {
             if (stock != null) {
                 int stockValue = stock.getStockPrice() * playerStock.getStockQuantity();  // 주식 평가액
                 totalStockValue += stockValue;  // 평가액 합산
-                System.out.println("  - " + stock.getStockName() + " | 수량: " + playerStock.getStockQuantity() + " | 단가: " + stock.getStockPrice() + " | 평가액: " + stockValue);
+                System.out.println("- " + stock.getStockName() + " | 수량: " + playerStock.getStockQuantity() + " | 단가: " + stock.getStockPrice() + " | 평가액: " + stockValue);
             }
         }
         System.out.println("- 총 보유 주식 평가액: " + totalStockValue);
+        System.out.println();
+        System.out.println(player.getPlayerStocksForMenu());
     }
 
     // 주식 목록 표시

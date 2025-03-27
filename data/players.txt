@@ -3,7 +3,7 @@ skala1,9200,GreenEnergy:80:10
 skala2,9000,TechCorp:100:10
 skala3,9400,HealthPlus:120:5
 skala4,9600,GreenEnergy:80:5
-yoona,117132,GreenEnergy:59:12|TechCorp:93:17
+yoona,113731,GreenEnergy:81:111
 ㅇgy,100000
 dd,499614,GreenEnergy:80:2|TechCorp:113:2
 leenjaongming,99964150,HealthPlus:239:150
