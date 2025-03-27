@@ -87,7 +87,7 @@ public class SkalaStockMarket {
     private boolean isTradingTime() {
         LocalTime currentTime = LocalTime.now();
         LocalTime startTime = LocalTime.of(9, 0);   // 9:00 AM
-        LocalTime endTime = LocalTime.of(18, 30);   // 3:30 PM
+        LocalTime endTime = LocalTime.of(15, 30);   // 3:30 PM
         return !currentTime.isBefore(startTime) && !currentTime.isAfter(endTime);
     }
     // 주식 구매
