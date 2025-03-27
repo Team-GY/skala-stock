@@ -25,6 +25,21 @@ class Player {
         return this.playerMoney;
     }
 
+    public int getPlayerStockMoney(StockRepository stockRepository) {
+        int total = 0;
+        for (PlayerStock ps : playerStocks) {
+            Stock currentStock = stockRepository.findStock(ps.getStockName());
+            if (currentStock != null) {
+                total += currentStock.getStockPrice() * ps.getStockQuantity();
+            }
+        }
+        return total;
+    }
+
+    public int getTotalAssets(StockRepository stockRepository) {
+        return this.getPlayerMoney() + getPlayerStockMoney(stockRepository);
+    }
+
     public void setPlayerMoney(int money) {
         this.playerMoney = money;
     }

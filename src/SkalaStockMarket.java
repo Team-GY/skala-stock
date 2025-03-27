@@ -73,9 +73,21 @@ public class SkalaStockMarket {
     private void displayPlayerStocks() {
         System.out.println("\n######### 플레이어 정보 #########");
         System.out.println("- 플레이어ID : " + player.getplayerId());
-        System.out.println("- 보유금액 : " + player.getPlayerMoney());
-        System.out.println("- 보유 주식 목록");
-        System.out.println(player.getPlayerStocksForMenu());
+        System.out.println("- 초기자본 : " + player.getPlayerMoney());
+        System.out.println("- 전체자산 : " + player.getTotalAssets(stockRepository));
+        System.out.println();
+        System.out.println("==============보유 주식 목록==============");
+        // 주식 목록과 평가액 출력
+        int totalStockValue = 0;  // 주식 평가액 합산
+        for (PlayerStock playerStock : player.getPlayerStocks()) {
+            Stock stock = stockRepository.findStock(playerStock.getStockName());
+            if (stock != null) {
+                int stockValue = stock.getStockPrice() * playerStock.getStockQuantity();  // 주식 평가액
+                totalStockValue += stockValue;  // 평가액 합산
+                System.out.println("  - " + stock.getStockName() + " | 수량: " + playerStock.getStockQuantity() + " | 단가: " + stock.getStockPrice() + " | 평가액: " + stockValue);
+            }
+        }
+        System.out.println("- 총 보유 주식 평가액: " + totalStockValue);
     }
 
     // 주식 목록 표시
